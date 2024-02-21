@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import './App.css';
 import {useAppDispatch, useAppSelector} from "./store/store";
-import {getTodolists, setTodo} from "./todolist-reducer/todolist-reducer";
+import {getTodolists, setTodo} from "./reducers/todolist-reducer";
 import {todolistApi, TodolistType} from "./api/todolist-api";
 import {AddItemForm} from "./components/AddItemForm";
 

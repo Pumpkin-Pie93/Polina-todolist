@@ -1,5 +1,5 @@
 import {ChangeEvent, useState,KeyboardEvent} from "react";
-
+import s from './AddItemForm.module.css'
 type AddItemFormProps = {
     addItem: (title:string) => void
 }
@@ -22,10 +22,11 @@ export const AddItemForm = (props: AddItemFormProps) => {
         setTitle(e.currentTarget.value)
     }
     const onKeyDownHandler = (e:KeyboardEvent<HTMLInputElement>) => {
-        setError(null)
-        if(e.key === 'enter'){
-            addItem()
-        }
+            setError(null)
+        console.log(e.key)
+            if(e.key === 'Enter'){
+                addItem()
+            }
     }
 
     return (
@@ -33,10 +34,13 @@ export const AddItemForm = (props: AddItemFormProps) => {
             <input onChange={onChangeHandler}
                    placeholder={'title'}
                    value={title}
-            onKeyDown={onKeyDownHandler}>
+                   onKeyDown={onKeyDownHandler}
+            className={error? s.error : ''}
+            >
 
             </input>
             <button onClick={addItem}>add</button>
+            {error && <span className={s.errorMessage}>{error}</span>}
         </div>
 
     )

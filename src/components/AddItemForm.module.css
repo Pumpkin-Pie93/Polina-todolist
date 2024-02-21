@@ -1,0 +1,11 @@
+.error {
+    border: 2px solid red;
+    color: red;
+    outline: red;
+}
+
+.errorMessage{
+    color: red;
+    display: inline-block;
+    margin: 2px;
+}
