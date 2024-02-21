@@ -3,6 +3,7 @@ import {ThunkDispatch} from "redux-thunk";
 import {AppRootStateType, AppThunkDispatch} from "../store/store";
 import {AnyAction} from "redux";
 import {Dispatch} from "react";
+import {setTasks, setTasksThunk} from "./task-reducer";
 
 
 const initialState:TodolistType[] = []
@@ -28,7 +29,6 @@ export const getTodolists = (data: TodolistType[]) => {
 
 export const setTodo = () => (dispatch:AppThunkDispatch) => {
     todolistApi.getTodolists().then((res)=> {
-
         dispatch(getTodolists(res.data))
     })
 }

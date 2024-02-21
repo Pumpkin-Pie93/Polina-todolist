@@ -9,7 +9,7 @@ const instance = axios.create({
 
 export const taskApi = {
     getTasks(todolistId:string) {
-        return instance.get<ResponceTaskType<TaskType[]>>(`todo-lists/{todolistId}/tasks`);
+        return instance.get<ResponceTaskType<TaskType[]>>(`todo-lists/${todolistId}/tasks`);
     }
 }
 

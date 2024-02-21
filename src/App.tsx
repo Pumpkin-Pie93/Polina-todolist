@@ -4,12 +4,13 @@ import {useAppDispatch, useAppSelector} from "./store/store";
 import {getTodolists, setTodo} from "./reducers/todolist-reducer";
 import {todolistApi, TodolistType} from "./api/todolist-api";
 import {AddItemForm} from "./components/AddItemForm";
+import {Tasks} from "./components/todolist/task/Task";
 
 function App() {
 
     const dispatch = useAppDispatch()
     const todolists = useAppSelector(state => state.todolists)
-
+const tasks = useAppSelector(state => state.tasks)
     useEffect(() => {
         dispatch(setTodo())
     }, [])
@@ -25,6 +26,7 @@ const addItemForm = (title: string)=> {
                     <div key={t.id} className={'todolist'}>
                         <span>{t.title}</span>
                         <AddItemForm addItem={addItemForm}/>
+                        <Tasks todolistId={t.id} tasks={tasks}/>
                         <div className={'buttonContainer'}>
                             <button>All</button>
                             <button>Active</button>
