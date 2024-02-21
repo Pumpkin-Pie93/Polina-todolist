@@ -1,9 +1,5 @@
 import {todolistApi, TodolistType} from "../api/todolist-api";
-import {ThunkDispatch} from "redux-thunk";
-import {AppRootStateType, AppThunkDispatch} from "../store/store";
-import {AnyAction} from "redux";
-import {Dispatch} from "react";
-import {setTasks, setTasksThunk} from "./task-reducer";
+import {AppThunkDispatch} from "../store/store";
 
 
 const initialState:TodolistType[] = []
@@ -11,17 +7,17 @@ const initialState:TodolistType[] = []
 export const todolistReducer = (state:TodolistType[] = initialState, action:Actionstype):TodolistType[] => {
     switch (action.type) {
         case'GET-TODOLISTS':
-            return [...action.data]
+            return [...action.todolists]
         default: return state
     }
 
 }
 //actions
 
-export const getTodolists = (data: TodolistType[]) => {
+export const getTodolists = (todolists: TodolistType[]) => {
     return {
         type:'GET-TODOLISTS',
-        data
+        todolists
     } as const
 }
 
@@ -35,6 +31,6 @@ export const setTodo = () => (dispatch:AppThunkDispatch) => {
 
 
 //types
-
-type Actionstype = ReturnType<typeof getTodolists>
+export type GetTodolist = ReturnType<typeof getTodolists>
+type Actionstype = GetTodolist
 

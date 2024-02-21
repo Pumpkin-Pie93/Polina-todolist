@@ -1,0 +1,9 @@
+.tasksWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid deeppink;
+    width: 300px;
+    min-height: 100px;
+}

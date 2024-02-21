@@ -10,7 +10,8 @@ function App() {
 
     const dispatch = useAppDispatch()
     const todolists = useAppSelector(state => state.todolists)
-const tasks = useAppSelector(state => state.tasks)
+    const tasks = useAppSelector(state => state.tasks)
+    console.log(tasks)
     useEffect(() => {
         dispatch(setTodo())
     }, [])
@@ -26,7 +27,7 @@ const addItemForm = (title: string)=> {
                     <div key={t.id} className={'todolist'}>
                         <span>{t.title}</span>
                         <AddItemForm addItem={addItemForm}/>
-                        <Tasks todolistId={t.id} tasks={tasks}/>
+                        <Tasks todolistId={t.id}/>
                         <div className={'buttonContainer'}>
                             <button>All</button>
                             <button>Active</button>
